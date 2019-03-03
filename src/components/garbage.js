@@ -44,7 +44,7 @@ export default class Garbage extends React.Component {
     if (!this.state.isLoaded) {
       return (
         <div className="garbage">
-          I got your garbage, now I am going to look up your garbage pickup schedule.
+          I found your location, now I am going to look up your garbage pickup schedule...
         </div>
       );
     }
