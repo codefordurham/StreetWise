@@ -9,7 +9,7 @@ class Location extends React.Component {
       return (
         <div className="location">
           <p>No geolocation available! At some point we will support the ability
-            for you to add your address.</p>
+            for you to search for your address.</p>
         </div>
       );
     }
@@ -17,7 +17,7 @@ class Location extends React.Component {
     if (!this.props.coords) {
       return (
         <div className="location">
-          <p>Please write: fetching location...</p>
+          <p>Fetching location...</p>
         </div>
       );
     }
