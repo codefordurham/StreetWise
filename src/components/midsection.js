@@ -1,20 +1,13 @@
 import React from 'react';
-import {
-	FaSass,
-	FaHtml5,
-	FaReact,
-	FaMobileAlt,
-	FaRocket,
-	FaOsi
-} from 'react-icons/fa';
-
 import './style.scss';
-import Emoji from './emoji';
+import Location from './location';
 
 const Midsection = () => (
 	<div>
 		<section className="section">
 			<div className="container">
+        <Location>
+        </Location>
 			</div>
 		</section>
 	</div>
