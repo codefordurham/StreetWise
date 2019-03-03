@@ -19,7 +19,6 @@ const Header = ({ siteTitle }) => (
 								StreetWise
 							</h1>
 							<p className="subtitle has-text-white is-size-3">
-								Enter your address below to get started.
 							</p>
 						</div>
 					</div>

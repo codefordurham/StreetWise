@@ -6,8 +6,7 @@ const Midsection = () => (
 	<div>
 		<section className="section">
 			<div className="container">
-        <Location>
-        </Location>
+        <Location />
 			</div>
 		</section>
 	</div>

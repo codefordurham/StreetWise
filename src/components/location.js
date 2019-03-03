@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.scss';
 import { geolocated, geoPropTypes } from 'react-geolocated';
+import Garbage from './garbage';
 
 class Location extends React.Component {
   render() {
@@ -23,7 +24,7 @@ class Location extends React.Component {
 
     return (
       <div className="location">
-        {this.props.children}
+        <Garbage lat={this.props.coords.latitude} long={this.props.coords.longitude}/>
       </div>
     );
   }
@@ -32,4 +33,9 @@ class Location extends React.Component {
 // Get eslint not to complain about geolocation fields
 Location.propTypes = {...Location.propTypes, ...geoPropTypes};
 
-export default geolocated()(Location);
+export default geolocated({
+  positionOptions: {
+    enableHighAccurace: false
+  },
+  userDecisionTimeout: 5000
+})(Location);
