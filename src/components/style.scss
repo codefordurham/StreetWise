@@ -16,7 +16,13 @@
 }
 
 .footer {
-	display: flex;
-	padding: 1.5rem 1.5rem;
-	line-height: 1.5rem;
+    padding: 1rem !important;
+}
+
+.footer-icons {
+  padding-top: 5px;
+}
+
+.footer-icons__icon {
+  margin-left: 5px;
 }

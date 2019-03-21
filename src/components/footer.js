@@ -17,24 +17,26 @@ const Footer = () => (
 		`}
 		render={data => (
 			<footer className="footer center has-background-light">
-				<div className="content has-text-centered">
-					<article className="media center">
-						<span className="icon">
-							<a href={data.site.siteMetadata.twitter}>
-								<FaTwitter size="fa-2x" color="gray" />
-							</a>
-						</span>
-						&nbsp;
-						<span className="icon">
-							<a href={data.site.siteMetadata.github}>
-								<FaGithub size="fa-2x" color="gray" />
-							</a>
-						</span>
+				<div className="content">
+					<article className="media">
+            <div className="media-left">
+              <p className="is-size-5">
+                Made by code for durham
+              </p>
+            </div>
+						<div className="media-right footer-icons">
+						  <span className="icon is-small footer-icons__icon">
+						  	<a href={data.site.siteMetadata.twitter}>
+						  		<FaTwitter size="" color="gray" />
+						  	</a>
+						  </span>
+						  <span className="icon is-small footer-icons__icon">
+						  	<a href={data.site.siteMetadata.github}>
+						  		<FaGithub size="" color="gray" />
+						  	</a>
+						  </span>
+						</div>
 					</article>
-					&nbsp;
-					<p className="is-size-5">
-            Visit code for durham.
-					</p>
 				</div>
 			</footer>
 		)}
