@@ -19,7 +19,7 @@ export default class Garbage extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://gisweb2.durhamnc.gov/arcgis/rest/services/DurhamMaps/SolidWaste/MapServer/2/query?f=json&geometry=${this.props.long},${this.props.lat}&returnGeometry=false&outFields=*&outSR=4326&geometryType=esriGeometryPoint&inSR=4326`)
+    fetch(`http://gisweb2.durhamnc.gov/arcgis/rest/services/DurhamMaps/SolidWaste/MapServer/2/query?f=json&geometry=${this.props.long},${this.props.lat}&returnGeometry=false&outFields=*&outSR=4326&geometryType=esriGeometryPoint&inSR=4326`)
       .then(response => response.json())
       .then(
         (result) => {
