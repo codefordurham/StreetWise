@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Streetwise</title>
+</head>
+<body>
+<div><br>Please enter your address:<br>
+<form action="give_results" method="post"> {% csrf_token %}
+        <input type="text" name="address"><br>
+        <br><br>
+     
+    <input type="submit" value="submit" >
+    <br><br><br>
+</form>
+</div>
+</body>
