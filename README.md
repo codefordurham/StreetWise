@@ -1,6 +1,6 @@
-# streetwise
+﻿# streetwise
 
-This is a Django project "Code for Durham" is working on that will be similiar to the LA Neighborhood Info site: http://neighborhoodinfo.lacity.org/
+This is a Django project "Code for Durham" is working on that will be similar to the LA Neighborhood Info site: http://neighborhoodinfo.lacity.org/
 
 Below are the steps I took to set up the Django project on my local machine (windows). Note, the Django security key is missing from the 
 settings.py file.  Please contact ssciere if you need this.
