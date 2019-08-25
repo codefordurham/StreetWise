@@ -7,6 +7,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bulma": "^0.7.4",
+    "d3": "^5.11.0",
     "gatsby": "^2.1.19",
     "gatsby-image": "^2.0.30",
     "gatsby-plugin-google-analytics": "^2.0.14",
@@ -22,19 +23,25 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-geolocated": "^2.4.1",
+    "react-geosuggest": "^2.12.0",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.4.0"
   },
   "devDependencies": {
-    "eslint": "^5.14.1",
-    "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.16.4",
-    "@storybook/react": "^5.0.3",
+    "@babel/core": "^7.4.0",
     "@storybook/addon-actions": "^5.0.3",
     "@storybook/addon-links": "^5.0.3",
     "@storybook/addons": "^5.0.3",
-    "@babel/core": "^7.4.0",
-    "babel-loader": "^8.0.5"
+    "@storybook/react": "^5.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-gatsby": "^0.2.11",
+    "eslint": "^5.14.1",
+    "eslint-plugin-react": "^7.12.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.16.4",
+    "react-test-renderer": "^16.9.0"
   },
   "keywords": [
     "gatsby",

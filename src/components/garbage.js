@@ -1,3 +1,4 @@
+import * as d3 from 'd3';
 import React from 'react';
 import './garbage.scss';
 import axios from 'axios';
@@ -19,19 +20,28 @@ export default class Garbage extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://gisweb2.durhamnc.gov/arcgis/rest/services/DurhamMaps/SolidWaste/MapServer/2/query?f=json&geometry=${this.props.long},${this.props.lat}&returnGeometry=false&outFields=*&outSR=4326&geometryType=esriGeometryPoint&inSR=4326`)
-      .then(response => response.json())
+    d3.json('data/trash.geojson')
       .then(
         (result) => {
-          const cleanAttribute = (name) => result.features[0].attributes[name].replace(/^.*: ?/,'')
-          this.setState({
-            isLoaded: true,
-            trashDay: result.features.length > 0 ? cleanAttribute('SW_DAY') : '',
-            yardDay: result.features.length > 0 ? cleanAttribute('YW_DAY') : '',
-            recycleDay: result.features.length > 0 ? cleanAttribute('REC_DAY') : '',
-          });
+          const matches = result.features.filter((d) => d3.geoContains(d, [this.props.long, this.props.lat]));
+          if (matches.length === 0) {
+            this.setState({
+              isError: true,
+              error: 'Could not find ward for your location',
+            });
+          } else {
+            const match = matches[0];
+            const cleanAttribute = (name) => match.properties[name].replace(/^.*: ?/,'')
+            this.setState({
+              isLoaded: true,
+              trashDay: cleanAttribute('SW_DAY'),
+              yardDay: cleanAttribute('YW_DAY'),
+              recycleDay: cleanAttribute('REC_DAY'),
+            });
+          }
         },
         (error) => {
+          console.log("|error = "+ error);
           this.setState({
             isError: true,
             error
