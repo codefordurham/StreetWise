@@ -2,8 +2,16 @@ import React from 'react';
 import './style.scss';
 import { geolocated, geoPropTypes } from 'react-geolocated';
 import Garbage from './garbage';
+import { FaSearchLocation } from 'react-icons/fa';
 
 class Location extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      starting: false
+    };
+  }
+
   render() {
     if (!this.props.isGeolocationAvailable) {
       return (
@@ -14,19 +22,30 @@ class Location extends React.Component {
       );
     }
 
-    if (!this.props.coords) {
+    if (this.state.starting) {
+      return (<div className="button"></div>);
+    } else {
       return (
-        <div className="location">
-          <p>Fetching location...</p>
-        </div>
-      );
+        <a className="button" href="">
+          <span className="icon">
+            <FaSearchLocation size="48" color="gray" />
+          </span>
+        </a>);
     }
 
-    return (
-      <div className="location">
-        <Garbage lat={this.props.coords.latitude} long={this.props.coords.longitude}/>
-      </div>
-    );
+    // if (!this.props.coords) {
+    //   return (
+    //     <div className="location">
+    //       <p>Fetching location...</p>
+    //     </div>
+    //   );
+    // }
+    //
+    // return (
+    //   <div className="location">
+    //     <Garbage lat={this.props.coords.latitude} long={this.props.coords.longitude}/>
+    //   </div>
+    // );
   }
 }
 

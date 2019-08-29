@@ -7,7 +7,7 @@ module.exports = {
 		keywords: `Durham Trash`,
 		twitter: 'https://twitter.com/codefordurham',
     github: `https://github.com/codefordurham/StreetWise`,
-		siteUrl: `https://www.example.com`
+    siteUrl: `https://www.example.com`
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',
