@@ -1,44 +1,31 @@
-import React from 'react';
-import './style.scss';
-import Geosuggest from 'react-geosuggest';
-import { Link } from 'gatsby';
+import React from "react";
+import "./style.scss";
+import Geosuggest from "react-geosuggest";
+import { Link } from "gatsby";
 
-class Search extends React.Component {
+export default class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      location: null
-    };
   }
 
   render() {
     return (
       <section className="section">
         <div className="container">
-        <div className="columns is-mobile">
-          <div className="column is-3 is-offset-4">
-            <Geosuggest
-              onSuggestSelect={(suggests) => {
-                this.setState({
-                  location: suggests.location
-                });
-              }}
-              placeholder='Find address'
-              inputClassName='input'/>
-          </div>
-          <div className="column is-1">
-            <Link
-              to="/sheet/"
-              className="button"
-              state={this.state}
-            >
-              Search
-            </Link>
+          <div className="columns is-mobile">
+            <div className="column is-3 is-offset-4">
+              <Geosuggest
+                onSuggestSelect={suggests => {
+                  let location = suggests.location;
+                  this.props.onLocationChange(location.lat, location.lng);
+                }}
+                placeholder="Find address"
+                inputClassName="input"
+              />
+            </div>
           </div>
         </div>
-        </div>
-      </section>);
+      </section>
+    );
   }
 }
-
-export default Search;
