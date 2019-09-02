@@ -8,22 +8,18 @@ import bulmaLogo from '../images/bulma-logo.png';
 import Navbar from './navbar';
 
 const Header = ({ siteTitle }) => (
-	<section className="hero gradientBg">
+	<section className="hero has-background-light">
 		<Navbar />
-		<div>
-			<div className="container center">
-				<article className="media">
-					<div className="media-content">
-						<div className="content">
-							<h1 className="is-size-1 has-text-white">
-								StreetWise
-							</h1>
-							<p className="subtitle has-text-white is-size-3">
-							</p>
-						</div>
+		<div className="container center">
+			<article className="media">
+				<div className="media-content">
+					<div className="content">
+						<h1 className="is-size-1">
+							StreetWise
+						</h1>
 					</div>
-				</article>
-			</div>
+				</div>
+			</article>
 		</div>
 	</section>
 );
