@@ -15,8 +15,7 @@ export default class IndexPage extends React.Component {
 
   async handleLocationChange(location) {
     try {
-      // let info = await LocationService.lookup(location.lat, location.lng);
-      let info = await LocationService.lookup(36.0117441, -78.93635990000001);
+      let info = await LocationService.lookup(location.location.lat, location.location.lng);
       this.setState({
         location: info,
         address: location.description
