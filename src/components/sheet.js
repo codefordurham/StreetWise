@@ -17,9 +17,7 @@ export default class Sheet extends React.Component {
             <div className="icon is-large media-left">
               <FaHome size="32" color="gray" />
             </div>
-            <p className="title">
-              1234 Main St
-            </p>
+            <p className="title">{this.props.address}</p>
           </div>
         </nav>
         <div className="columns">

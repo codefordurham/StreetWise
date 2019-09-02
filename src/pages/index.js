@@ -8,15 +8,19 @@ import Sheet from "../components/sheet";
 export default class IndexPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { location: null };
+    this.state = {
+      location: null,
+    };
   }
 
-  async handleLocationChange(lat, lng) {
+  async handleLocationChange(location) {
     try {
-      // let location = this.props.location.state.location;
       // let info = await LocationService.lookup(location.lat, location.lng);
       let info = await LocationService.lookup(36.0117441, -78.93635990000001);
-      this.setState({ location: info });
+      this.setState({
+        location: info,
+        address: location.description
+      });
     } catch (error) {
       console.log(error);
     }
@@ -38,6 +42,7 @@ export default class IndexPage extends React.Component {
           onLocationChange={this.handleLocationChange.bind(this)}
         />
         <Sheet
+          address={this.state.address}
           location={this.state.location}
         />
       </Layout>

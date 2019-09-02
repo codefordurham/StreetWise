@@ -16,8 +16,7 @@ export default class Search extends React.Component {
             <div className="column is-3 is-offset-4">
               <Geosuggest
                 onSuggestSelect={suggests => {
-                  let location = suggests.location;
-                  this.props.onLocationChange(location.lat, location.lng);
+                  this.props.onLocationChange(suggests);
                 }}
                 placeholder="Find address"
                 inputClassName="input"
