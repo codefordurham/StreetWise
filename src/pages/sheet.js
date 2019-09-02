@@ -3,52 +3,30 @@ import React from "react";
 import PropTypes from "prop-types";
 import LocationService from "../services/location_service";
 import { FaHome, FaShieldAlt, FaBalanceScale } from 'react-icons/fa';
+import { get } from 'lodash/get';
 
 export default class Sheet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoaded: false,
-      isError: false,
-      trashDay: '',
-      yardDay: '',
-      recycleDay: '',
+      trash: {}
     };
   }
 
   async componentDidMount() {
     try {
-      let location = props.location.state.location;
-      console.log("|looking it up");
-      console.log("|location.lat = "+ location.lat);
-      let info = LocationService.lookup(location.lat, location.lng);
-      // let info = await LocationService.lookup(36.0117441, -78.93635990000001);
-      console.log("|got it");
-      console.log(info);
+      let location = this.props.location.state.location;
+      // let info = await LocationService.lookup(location.lat, location.lng);
+      let info = await LocationService.lookup(36.0117441, -78.93635990000001);
       this.setState(info);
     } catch (error) {
+      console.log(error);
       this.setState({
-        isLoaded: true,
-        isError: true,
-        trashDay: '',
-        yardDay: '',
-        recycleDay: '',
       });
     }
   }
 
   render() {
-    if (!this.state.isLoaded) {
-      return (
-        <Layout>
-          <div className="container">
-            <h1>Sheet</h1>
-            <p>...</p>
-          </div>
-        </Layout>
-      );
-    }
-
     return (
       <Layout>
         <div>
@@ -99,11 +77,11 @@ export default class Sheet extends React.Component {
                 <tbody>
                   <tr>
                     <td><strong>Trash</strong></td>
-                    <td>{this.state.trashDay}</td>
+                    <td>{this.state.trash.trashDay}</td>
                   </tr>
                   <tr>
                     <td><strong>Recycling</strong></td>
-                    <td>{this.state.recycleDay}</td>
+                    <td>{this.state.trash.recycleDay}</td>
                   </tr>
                   <tr>
                     <td><strong>Nearest Park</strong></td>
@@ -153,7 +131,7 @@ export default class Sheet extends React.Component {
                 <tbody>
                   <tr>
                     <td><strong>Ward</strong></td>
-                    <td></td>
+                    <td>{this.state.ward.ward}</td>
                   </tr>
                 </tbody>
               </table>
@@ -163,4 +141,8 @@ export default class Sheet extends React.Component {
       </Layout>
     );
   }
+}
+
+Sheet.propTypes = {
+  location: PropTypes.object
 }
