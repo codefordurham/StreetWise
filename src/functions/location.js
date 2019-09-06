@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import { readFileSync } from 'fs';
 
-const TRASH_JSON = readFileSync('./public/data/trash.geojson');
+const TRASH_JSON = require('./static/data/trash.geojson');
 class TrashService {
   static lookup(lat, lng) {
     const matches = JSON.parse(TRASH_JSON).features.filter(d =>
@@ -22,7 +22,7 @@ class TrashService {
   }
 }
 
-const WARDS_JSON = readFileSync('./public/data/wards.geojson');
+const WARDS_JSON = require('./static/data/wards.geojson');
 class WardService {
   static lookup(lat, lng) {
     const matches = JSON.parse(WARDS_JSON).features.filter(d =>
