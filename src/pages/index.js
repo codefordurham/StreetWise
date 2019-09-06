@@ -1,6 +1,6 @@
 import React from "react";
 
-import LocationService from "../services/location_service";
+import axios from 'axios';
 import Layout from "../components/layout";
 import Search from "../components/search";
 import Sheet from "../components/sheet";
@@ -15,9 +15,12 @@ export default class IndexPage extends React.Component {
 
   async handleLocationChange(location) {
     try {
-      let info = await LocationService.lookup(location.location.lat, location.location.lng);
+      let info = await axios.get(
+        `/.netlify/functions/location?lat=${location.location.lat}&lng=${location.location.lng}`,
+        { responseType: 'json' }
+      );
       this.setState({
-        location: info,
+        location: info.data,
         address: location.description
       });
     } catch (error) {
