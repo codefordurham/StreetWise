@@ -1,4 +1,4 @@
-{
+export var trash_json = {
 "type": "FeatureCollection",
 "name": "trash",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
