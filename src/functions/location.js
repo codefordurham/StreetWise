@@ -1,10 +1,13 @@
 import * as d3 from "d3";
 import { readFileSync } from 'fs';
-import trash_json from './trash_geo';
+import { trash_json } from './trash_geo';
 
+console.log("|trash_json = "+ trash_json);
+
+console.log(trash_json);
 class TrashService {
   static lookup(lat, lng) {
-    const matches = trash_json.features.filter(d =>
+    const matches = (trash_json).features.filter(d =>
       d3.geoContains(d, [lng, lat])
     );
     if (matches.length === 0) {
