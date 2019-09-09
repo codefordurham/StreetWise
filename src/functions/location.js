@@ -4,7 +4,7 @@ import trash_json from './trash_geo';
 
 class TrashService {
   static lookup(lat, lng) {
-    const matches = JSON.parse(trash_json).features.filter(d =>
+    const matches = trash_json.features.filter(d =>
       d3.geoContains(d, [lng, lat])
     );
     if (matches.length === 0) {
