@@ -2,16 +2,22 @@
 
 <html lang="en">
 <head>
-  <title>Streetwise</title>
+  <title>Streetwise </title>
+  <link rel = "stylesheet"   type = "text/css"    href = "https://code-for-durham.s3.amazonaws.com/style.css" />
 </head>
 <body>
-<div><br>Please enter your address:<br>
+  	<div class = "container">
+        <div class = "searchbar">
+<div><br>Please enter your street address and five digit zipcode:
+
 <form action="give_results" method="post"> {% csrf_token %}
+        
         <input type="text" name="address"><br>
-        <br><br>
-     
+        <input type="text" name="zip_code">
+        <br><br>     
     <input type="submit" value="submit" >
-    <br><br><br>
+<div>
+</div>
 </form>
 </div>
 </body>

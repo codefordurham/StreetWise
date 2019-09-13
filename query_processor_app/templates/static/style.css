@@ -1,0 +1,47 @@
+body {
+    color: #00008B;
+    background-color: #FFD700;
+}
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: 50px 200px 250px 250px;
+    grid-gap: 0;
+    
+  }
+  
+  .searchbar {
+      grid-column: 3 / 5;
+      color: blue;
+    }
+  
+  .utilities {
+      grid-column: 3 / 8;
+      color: blue;
+    }
+  
+  .health-safety {
+      grid-column: 3 /5;
+    }
+  
+  .government {
+      grid-column: 5 / 6;
+    }
+  
+  .transportation {
+      grid-column: 3 / 5; 
+    }
+  
+  .education {
+    grid-column: 5/ 6;  
+  }
+  
+  li{
+    list-style:none;
+  }
+  
+  ul{
+    padding: 0;
+  }
+  
