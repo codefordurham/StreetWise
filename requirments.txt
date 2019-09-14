@@ -1,2 +1,4 @@
-beautifulsoup4
-google
+
+django = "==2.1.13"
+python_version = "3.7"
+robobrowser

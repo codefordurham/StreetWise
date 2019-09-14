@@ -1,6 +1,6 @@
 body {
-    color: #00008B;
-    background-color: #FFD700;
+    color: #000000;
+    background-color: #ffffff;
 }
 
 .container {
@@ -13,12 +13,12 @@ body {
   
   .searchbar {
       grid-column: 3 / 5;
-      color: blue;
+      color: #000000;
     }
   
   .utilities {
       grid-column: 3 / 8;
-      color: blue;
+      color: #000000;
     }
   
   .health-safety {
