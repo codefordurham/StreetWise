@@ -1,1 +1,1 @@
-web: gunicorn portfolio_project.wsgi --log-file=-
+web: gunicorn streetwise.wsgi --log-file=-
