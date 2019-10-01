@@ -56,6 +56,10 @@ export default class Sheet extends React.Component {
             <table className="table is-fullwidth">
               <tbody>
                 <tr>
+                  <td><strong>Neighborhood</strong></td>
+                  <td>{this.props.location.neighborhood.name}</td>
+                </tr>
+                <tr>
                   <td><strong>Trash</strong></td>
                   <td>{this.props.location.trash.trashDay}</td>
                 </tr>

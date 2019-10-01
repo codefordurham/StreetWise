@@ -1,5 +1,25 @@
 import * as d3 from "d3";
 
+class NeighborhoodService {
+  static async lookup(lat, lng) {
+    return d3.json("/data/durham-hoods.geojson").then(result => {
+      const matches = result.features.filter(d =>
+        d3.geoContains(d, [lng, lat])
+      );
+      if (matches.length === 0) {
+        return {
+          error: 'Could not find ward for your location',
+        };
+      }
+      const match = matches[0];
+      return {
+        name: match.properties.name,
+      };
+    });
+  }
+}
+
+
 class TrashService {
   static async lookup(lat, lng) {
     return d3.json("/data/trash.geojson").then(result => {
@@ -47,11 +67,13 @@ export default class LocationService {
     return Promise.all([
       TrashService.lookup(lat, lng),
       WardService.lookup(lat, lng),
+      NeighborhoodService.lookup(lat, lng),
     ]).then((services) => {
-      let [trash, ward] = services;
+      let [trash, ward, neighborhood] = services;
       return {
         trash,
         ward,
+        neighborhood,
       }
     });
   }
