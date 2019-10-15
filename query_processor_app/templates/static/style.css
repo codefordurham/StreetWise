@@ -14,6 +14,8 @@ h4 {
   border-bottom: 1px solid #ccc;
   margin: 0px 0px;
   padding: 10px 50px;
+  background-position: 0 4px;
+  background-repeat: none;
 }
 
 .container {
@@ -42,7 +44,6 @@ h4 {
 
   .health-and-safety{
     background-image: url('img/icon-health-and-safety.svg');
-    background-repeat: none;
   }
   
   .government {
@@ -51,7 +52,6 @@ h4 {
 
   .government h4{
     background-image: url('img/icon-government.svg');
-    background-repeat: none;
   }
   
   .transportation {
@@ -60,7 +60,6 @@ h4 {
 
   .transportation h4{
     background-image: url('img/icon-transportation.svg');
-    background-repeat: none;
   }
   
   .education {
