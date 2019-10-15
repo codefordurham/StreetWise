@@ -42,6 +42,7 @@ h4 {
 
   .health-and-safety{
     background-image: url('img/icon-health-and-safety.svg');
+    background-repeat: none;
   }
   
   .government {
@@ -50,6 +51,7 @@ h4 {
 
   .government h4{
     background-image: url('img/icon-government.svg');
+    background-repeat: none;
   }
   
   .transportation {
@@ -58,6 +60,7 @@ h4 {
 
   .transportation h4{
     background-image: url('img/icon-transportation.svg');
+    background-repeat: none;
   }
   
   .education {
@@ -66,6 +69,7 @@ h4 {
 
   .education h4{
     background-image: url('img/icon-education.svg');
+    background-repeat: none;
   }
   
   li{
