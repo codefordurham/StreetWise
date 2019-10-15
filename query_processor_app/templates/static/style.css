@@ -59,4 +59,36 @@ h4 {
   ul{
     padding: 0;
   }
+
+
+
+
+@media only screen and (max-width: 900px) {
+
+  .searchbar {
+      grid-column: 1 / 4;
+    }
+  
+  .utilities {
+      grid-column: 1 / 4;
+    }
+  
+  .health-safety {
+      grid-column: 1 / 4; 
+    }
+  
+  .government {
+      grid-column: 1 / 4;
+    }
+  
+  .transportation {
+      grid-column: 1 / 4; 
+    }
+  
+  .education {
+    grid-column: 1 / 4;  
+  }
+  
+
+}
   
