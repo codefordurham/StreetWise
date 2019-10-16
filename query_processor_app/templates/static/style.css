@@ -1,113 +1,112 @@
 body {
-    color: #000000;
-    background-color: #ffffff;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 
 h1 {
-  border-bottom: 1px solid #ccc;
-  padding: 20px 0;
-  margin: 0px 0px; 
+border-bottom: 1px solid #ccc;
+padding: 20px 0;
+margin: 0px 0px; 
 }
 
 h4 {
-  border-bottom: 1px solid #ccc;
-  margin: 0px 0px;
-  padding: 10px 50px;
-  background-position: 0 4px;
-  background-repeat: none;
+border-bottom: 1px solid #ccc;
+margin: 0px 0px;
+padding: 10px 50px;
+background-position: 0 4px;
+background-repeat: none;
 }
 
 .container {
-    display:grid;
-    grid-template-columns: repeat(3, 1fr); 
-    /*grid-template-rows: 50px 200px 250px 250px;*/
-    grid-gap: 20px;
-    font-family: 'Open Sans', sans-serif;
-    margin: 40px;
-    font-size: 14px;
-  }
-  
-  .searchbar {
-      grid-column: 1 / 4;
-      color: #000000;
-    }
-  
-  .utilities {
-      grid-column: 1 / 4;
-      color: #000000;
-    }
-  
-  .health-safety {
-      grid-column: 1 / 2; 
-    }
+  display:grid;
+  grid-template-columns: repeat(3, 1fr); 
+  /*grid-template-rows: 50px 200px 250px 250px;*/
+  grid-gap: 20px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 40px;
+  font-size: 14px;
+}
 
-  .health-and-safety{
-    background-image: url('img/icon-health-and-safety.svg');
-  }
-  
-  .government {
-      grid-column: 2 / 3;
-    }
-
-  .government h4{
-    background-image: url('img/icon-government.svg');
-  }
-  
-  .transportation {
-      grid-column: 3 / 3; 
-    }
-
-  .transportation h4{
-    background-image: url('img/icon-transportation.svg');
-  }
-  
-  .education {
-    grid-column: 1 / 2;  
+.searchbar {
+    grid-column: 1 / 4;
+    color: #000000;
   }
 
-  .education h4{
-    background-image: url('img/icon-education.svg');
-    background-repeat: none;
+.utilities {
+    grid-column: 1 / 4;
+    color: #000000;
   }
-  
-  li{
-    list-style:none;
+
+.health-safety {
+    grid-column: 1 / 2; 
   }
-  
-  ul{
-    padding: 0;
+
+.health-safety{
+  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-health-and-safety.svg');
+}                       
+
+.government {
+    grid-column: 2 / 3;
   }
+
+.government h4{
+  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-government.svg');
+}
+
+.transportation {
+    grid-column: 3 / 3; 
+  }
+
+.transportation h4{
+  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-transportation.svg');
+}
+
+.education {
+  grid-column: 1 / 2;  
+}
+
+.education h4{
+  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-education.svg');
+  background-repeat: none;
+}
+
+li{
+  list-style:none;
+}
+
+ul{
+  padding: 0;
+}
 
 
 
 
 @media only screen and (max-width: 900px) {
 
-  .searchbar {
-      grid-column: 1 / 4;
-    }
-  
-  .utilities {
-      grid-column: 1 / 4;
-    }
-  
-  .health-safety {
-      grid-column: 1 / 4; 
-    }
-  
-  .government {
-      grid-column: 1 / 4;
-    }
-  
-  .transportation {
-      grid-column: 1 / 4; 
-    }
-  
-  .education {
-    grid-column: 1 / 4;  
+.searchbar {
+    grid-column: 1 / 4;
   }
-  
+
+.utilities {
+    grid-column: 1 / 4;
+  }
+
+.health-safety {
+    grid-column: 1 / 4; 
+  }
+
+.government {
+    grid-column: 1 / 4;
+  }
+
+.transportation {
+    grid-column: 1 / 4; 
+  }
+
+.education {
+  grid-column: 1 / 4;  
+}
+
 
 }
-  
