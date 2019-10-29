@@ -42,7 +42,7 @@ h4 {
       grid-column: 1 / 2; 
     }
 
-  .health-and-safety{
+  .health-safety{
     background-image: url('img/icon-health-and-safety.svg');
     background-repeat: none;
   }
