@@ -15,7 +15,7 @@ border-bottom: 1px solid #ccc;
 margin: 0px 0px;
 padding: 10px 50px;
 background-position: 0 4px;
-background-repeat: none;
+background-repeat: no-repeat;
 }
 
 .container {
@@ -42,8 +42,8 @@ background-repeat: none;
     grid-column: 1 / 2; 
   }
 
-.health-safety{
-  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-health-and-safety.svg');
+.health-safety h4{
+  background-image: url('images/icon-health-and-safety.svg')
 }                       
 
 .government {
@@ -51,7 +51,7 @@ background-repeat: none;
   }
 
 .government h4{
-  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-government.svg');
+  background-image: url('images/icon-government.svg');
 }
 
 .transportation {
@@ -59,7 +59,7 @@ background-repeat: none;
   }
 
 .transportation h4{
-  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-transportation.svg');
+  background-image: url('images/icon-transportation.svg');
 }
 
 .education {
@@ -67,8 +67,7 @@ background-repeat: none;
 }
 
 .education h4{
-  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-education.svg');
-  background-repeat: none;
+  background-image: url('images/icon-education.svg');
 }
 
 li{

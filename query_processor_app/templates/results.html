@@ -1,3 +1,4 @@
+{% load static %}
 
 <!DOCTYPE html>
 
@@ -5,7 +6,11 @@
 
 <head>
   <title>Streetwise</title>
+  {% if debug %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  {% else %}
   <link rel="stylesheet" type="text/css" href="https://code-for-durham.s3.amazonaws.com/style.css" />
+  {% endif %}
 </head>
 
 <body>
@@ -33,7 +38,7 @@
       </ul>
     </div>
     <div class="health-safety">
-      <h4>Health and Safety </h4>
+      <h4>Health and Safety</h4>
 
       <ul>
         <li><label>Fire Dept </label> {{ nearestFireDept }}</li>
