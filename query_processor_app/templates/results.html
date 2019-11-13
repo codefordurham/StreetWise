@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>Streetwise</title>
+  <link rel="stylesheet" type="text/css" href="https://code-for-durham.s3.amazonaws.com/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="searchbar">
+      <h1> {{ address}} </h1>
+    </div>
+
+
+    <div class="utilities">
+      <ul>
+        <li><label>Electric </label><a href="{{ electCompURL }}" target=_blank>Duke Energy</a> {{ electCompPhone }}</li>
+        <li><label>Water </label> <a href="{{ waterURL }}" target=_blank>Durham Water Connection</a> {{ waterPhone }} or
+          in person at {{ waterAddress }}</li>
+        <li><label>Gas </label> <a href="{{ gasCompURL }}" target=_blank>{{ gasCompName }}</a> {{ gasCompPhone }}</li>
+        <li><label>Internet </label> <a href="{{ internetURL }}" target=_blank>{{ internetLookupSite }}</a></li>
+        <li><label>TV </label> <a href="{{ TVURL }}" target=_blank>{{ TVLookupSite }}</a></li>
+      </ul>
+
+      <ul>
+        <li><label>Trash </label> {{ trashDays }}</li>
+        <li><label>Recycling </label> {{ recyclingDays }}</li>
+        <li><label>Nearest Park </label> {{ nearestPark }}</li>
+        <li><label>Nearest Libraries </label> {{ nearestLibrary }}</li>
+      </ul>
+    </div>
+    <div class="health-safety">
+      <h4>Health and Safety </h4>
+
+      <ul>
+        <li><label>Fire Dept </label> {{ nearestFireDept }}</li>
+      </ul>
+
+      <ul>
+        <li><label>Police Dept </label>{{ policePhone }}</li>
+      </ul>
+
+      <ul>
+        <li><label>Neighborhood Listserv/watch <a href="#" title="Hello from speech bubble!" class="tooltip"><img src="img/tooltip.svg"></a></label>{{ neighborhoodListServ  }}</li>
+        <li><label>ward </label>{{ ward  }}</li>
+        <li><label>Nearest Hospital/ER/Clinic </label>{{ nearestHospital }}</li>
+        <li><label>Emergency Alerts </label><a href="{{ emergencyAlertsURL }}"
+            target=_blank>{{ emergencyAlertsWebsiteName }}</a></li>
+      </ul>
+
+    </div>
+
+    <div class="government">
+      <h4>Government</h4>
+
+      <ul>
+        <li><label>Poling location </label></li>
+        <li> {{ polingLocation }} </li>
+      </ul>
+      <ul>
+        <li><label>Durham County Board of Elections </label>{{ boardOfElectPhone }}</li>
+      </ul>
+
+    </div>
+
+    <div class="transportation">
+      <h4>Transportation</h4>
+
+      <ul>
+        <li><label>Find a Taxi </label>{{ taxiInfo }}</li>
+        <li><label>Find a Bus </label><a href="{{ busURL }}" target=_blank>{{ busWebsiteName }}</a></li>
+      </ul>
+
+    </div>
+
+    <div class="education">
+      <h4>Education</h4>
+      <ul>
+        <li><label>Durham School District </label>{{ schoolDistrict }}</li>
+        <li><label>School Board </label> {{ schoolBoardInfo }}</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+ 
