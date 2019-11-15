@@ -1,8 +1,7 @@
 body {
-    color: #000000;
-    background-color: #ffffff;
+  color: #000000;
+  background-color: #ffffff;
 }
-
 
 h1 {
   border-bottom: 1px solid #ccc;
@@ -15,51 +14,50 @@ h4 {
   margin: 0px 0px;
   padding: 10px 50px;
   background-position: 0 4px;
-  background-repeat: none;
+  background-repeat: no-repeat;
 }
 
 .container {
-    display:grid;
-    grid-template-columns: repeat(3, 1fr); 
-    /*grid-template-rows: 50px 200px 250px 250px;*/
-    grid-gap: 20px;
-    font-family: 'Open Sans', sans-serif;
-    margin: 40px;
-    font-size: 14px;
-  }
+  display:grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-gap: 20px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 40px;
+  font-size: 14px;
+}
   
-  .searchbar {
-      grid-column: 1 / 4;
-      color: #000000;
-    }
+.searchbar {
+  grid-column: 1 / 4;
+  color: #000000;
+}
+
+.utilities {
+  grid-column: 1 / 4;
+  color: #000000;
+}
   
-  .utilities {
-      grid-column: 1 / 4;
-      color: #000000;
-    }
-  
- .health-safety {
-    grid-column: 1 / 2; 
-  }
+.health-safety {
+  grid-column: 1 / 2; 
+}
 
 .health-safety h4{
-  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-health-and-safety.svg');
+  background-image: url('images/icon-health-and-safety.svg')
 }                       
 
 .government {
-    grid-column: 2 / 3;
-  }
+  grid-column: 2 / 3;
+}
 
 .government h4{
-  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-government.svg');
+  background-image: url('images/icon-government.svg');
 }
 
 .transportation {
-    grid-column: 3 / 3; 
-  }
+  grid-column: 3 / 3; 
+}
 
 .transportation h4{
-  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-transportation.svg');
+  background-image: url('images/icon-transportation.svg');
 }
 
 .education {
@@ -67,28 +65,22 @@ h4 {
 }
 
 .education h4{
-  background-image: url('https://code-for-durham.s3.amazonaws.com/images/icon-education.svg');
-  background-repeat: none;
+  background-image: url('images/icon-education.svg');
 }
 
-  
-  li{
-    list-style:none;
-  }
-  
-  ul{
-    padding: 0;
-  }
+li{
+  list-style:none;
+}
 
-
-
+ul{
+  padding: 0;
+}
 
 .tooltip{
-    text-decoration: none;
-    display: inline;
-    position: relative;
+  text-decoration: none;
+  display: inline;
+  position: relative;
 }
-
 
 .tooltip:hover:after{
   display: -webkit-flex;
@@ -114,8 +106,6 @@ h4 {
   bottom: 30px;
   position: absolute;
 }
-
-
 
 @media only screen and (max-width: 900px) {
 
@@ -143,6 +133,5 @@ h4 {
     grid-column: 1 / 4;  
   }
   
-
 }
   
