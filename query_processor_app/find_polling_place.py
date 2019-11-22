@@ -2,8 +2,8 @@ import re
 import robobrowser
 from robobrowser import RoboBrowser
 from .formatting import formatAddress
-# import geopandas
-# from shapely.geometry import Point
+import geopandas
+from shapely.geometry import Point
 
 
 def findPollingPlace(address, zip_code):
