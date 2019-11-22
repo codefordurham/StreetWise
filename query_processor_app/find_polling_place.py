@@ -2,8 +2,13 @@ import re
 import robobrowser
 from robobrowser import RoboBrowser
 from .formatting import formatAddress
-# import geopandas
-# from shapely.geometry import Point
+
+#try/except avoids throwing error if local developer does not have geopandas
+try:
+    import geopandas
+    from shapely.geometry import Point
+except:
+    pass
 
 
 def findPollingPlace(address, zip_code):
@@ -23,13 +28,15 @@ def findPollingPlace(address, zip_code):
     return polling_address
 
 def findWard(address, zip_code):
-    # # TODO how do I get the lat/lng from the address and zip_code?
-    # p = Point(-78.899690, 36.022480)
-    # ward_data = geopandas.read_file('public/data/wards.geojson')
+    try:  #try/except avoids throwing error if local developer does not have geopandas
+        # TODO how do I get the lat/lng from the address and zip_code?
+        p = Point(-78.899690, 36.022480)
+        ward_data = geopandas.read_file('public/data/wards.geojson')
 
-    # matching_layers = [i for i, val in enumerate(ward_data.intersects(p)) if val]
-    # if len(matching_layers) == 0:
-    #     return 'nothing'
+        matching_layers = [i for i, val in enumerate(ward_data.intersects(p)) if val]
+        if len(matching_layers) == 0:
+            return 'n/a'
 
-    # return ward_data.iloc[matching_layers[0]].Ward
-    return 'TODO'
+        return ward_data.iloc[matching_layers[0]].Ward
+    except:
+        return 'n/a'
