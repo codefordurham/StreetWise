@@ -40,8 +40,7 @@ def findWard(address, zip_code, lat, lon):
         matching_layers = [i for i, val in enumerate(ward_data.intersects(p)) if val]
         if len(matching_layers) == 0:
             return 'n/a'
-        user_ward = ward_data.iloc[matching_layers[0]].Ward
-        return_ward = int(filter(str.isdigit, user_ward)) #converts result to numeric value only
-        return return_ward
+        
+        return ward_data.iloc[matching_layers[0]].Ward
     except:
         return 'n/a'
