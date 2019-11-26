@@ -55,6 +55,6 @@ def findPoliceDistrict(address, zip_code, lat, lon):
         if len(matching_layers) == 0:
             return 'n/a'
         
-        return police_district_data.iloc[matching_layers[0]].Police_District
+        return police_district_data.iloc[matching_layers[0]].DISTNUM
     except:
         return 'n/a'
