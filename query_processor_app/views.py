@@ -41,10 +41,18 @@ def main(request):
             comma_count += 1
             if comma_count == 2:
                 break
+    #extract zip code
+    reversed_address = result_address[::-1]
+    zip_code = ""
+    for l in reversed_address:
+        if l.isdigit():
+            zip_code = zip_code + l
+            if len(zip_code) == 5:
+                break
+    zip_code = zip_code[::-1]
 
     # call functions that gather data
-    
-    zip_code = '27707'
+        
     polling_address = findPollingPlace(street_name, zip_code)
     ward = findWard(street_name, zip_code, lat, lon)
 
