@@ -19,6 +19,7 @@ def main(request):
 
     if request.method == "POST":
         address = request.POST.get("address")
+    address = address + ' Durham, NC'
     
 
     url = "https://us1.locationiq.com/v1/search.php"
