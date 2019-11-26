@@ -34,7 +34,7 @@ def findPollingPlace(address, zip_code):
 def findWard(address, zip_code, lat, lon):
     try:  #try/except avoids throwing error if local developer does not have geopandas
         # TODO how do I get the lat/lng from the address and zip_code?
-        p = Point(35.9768825, -78.9275085)
+        p = Point(-78.9275085, 35.9768825)
         ward_data = geopandas.read_file('public/data/wards.geojson')
 
         matching_layers = [i for i, val in enumerate(ward_data.intersects(p)) if val]
