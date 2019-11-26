@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import AddressEntryForm
 from .models import AddressEntry
-from .find_polling_place import findPollingPlace, findWard
+from .find_polling_place import findPollingPlace, findWard, findPoliceDistrict
 import requests
 
 
@@ -55,6 +55,7 @@ def main(request):
         
     polling_address = findPollingPlace(street_name, zip_code)
     ward = findWard(street_name, zip_code, lat, lon)
+    police_district  = findPoliceDistrict(street_name, zip_code, lat, lon)
 
     # send data to be displayed on results page
     return render(
@@ -80,7 +81,7 @@ def main(request):
             "nearestPark": "n/a",
             "nearestLibrary": "n/a",
             "nearestFireDept": "n/a",
-            "policePhone": "(919) 560-4935 (for emergency call 911)",
+            "policeDistrict": police_district,
             "neighborhoodListServ": "n/a",
             "ward": ward,
             "emergencyAlertsWebsiteName": "Alerts Center",
