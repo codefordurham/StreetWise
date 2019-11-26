@@ -27,8 +27,10 @@ def main(request):
     return_info = response.json()
     first_return_dict = return_info[0]
     result_address = first_return_dict['display_name']
-    lat = first_return_dict['lat']
-    lon = first_return_dict['lon'] 
+    
+    #extract user coordintaes
+    lat = float(first_return_dict['lat'])
+    lon = float(first_return_dict['lon'])
     #extract street address 
     comma_count = 0
     street_name = ""
