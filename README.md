@@ -2,13 +2,13 @@
 
 This is a Django project "Code for Durham" is working on that will be similar to the LA Neighborhood Info site: http://neighborhoodinfo.lacity.org/
 
-Below are the steps I took to set up the Django project on my local machine (windows). Note, the Django security key is missing from the 
-settings.py file.  Please contact ssciere if you need this.
+Below are the steps I took to set up the Django project on my local machine (windows). Note, the Django security key is missing from the settings.py file.  Please contact ssciere if you need this.
 
 ****STEPS TO CREATE DJANGO PROJECT LOCALLY ON WINDOWS MACHINE (and launch in VS Code)****************
 
-
 note: I'm using Python 3.7.2
+
+```
 (streetwise-3GpLyePt) C:\Users\Steve\code_for_durham\streetwise>python --version
 Python 3.7.2
 
@@ -59,3 +59,13 @@ Microsoft Windows [Version 10.0.17763.503]
 (streetwise-3GpLyePt) C:\Users\Steve\code_for_durham\streetwise>python manage.py startapp query_processor_app
 
 (streetwise-3GpLyePt) C:\Users\Steve\code_for_durham\streetwise>code .
+```
+
+Local Docker Development
+-------------------------
+
+To run this locally with docker:
+
+    docker-compose up
+
+Then visit http://localhost:8000
