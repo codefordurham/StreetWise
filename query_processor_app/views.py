@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms import AddressEntryForm
 from .models import AddressEntry
 from .find_polling_place import findPollingPlace, findWard
+import requests
 
 
 # Get data from end user
@@ -18,18 +19,39 @@ def main(request):
 
     if request.method == "POST":
         address = request.POST.get("address")
-        zip_code = request.POST.get("zip_code")
+    
+
+    url = "https://us1.locationiq.com/v1/search.php"
+    data = {'key': 'pk.aa40b962e9898c9fbc72b3d9cd662af7','q': address, 'format': 'json'}
+    response = requests.get(url, params=data)
+    return_info = response.json()
+    first_return_dict = return_info[0]
+    result_address = first_return_dict['display_name']
+    lat = first_return_dict['lat']
+    lon = first_return_dict['lon'] 
+    #extract street address 
+    comma_count = 0
+    street_name = ""
+    for character in result_address:
+        if character != ",":
+            street_name += character
+        else:
+            comma_count += 1
+            if comma_count == 2:
+                break
 
     # call functions that gather data
-    polling_address = findPollingPlace(address, zip_code)
-    ward = findWard(address, zip_code)
+    
+    zip_code = '27707'
+    polling_address = findPollingPlace(street_name, zip_code)
+    ward = findWard(street_name, zip_code, lat, lon)
 
     # send data to be displayed on results page
     return render(
         request,
         "./results.html",
         {
-            "address": address,
+            "address": street_name,
             "electCompName": "Duke Energy",
             "electCompURL": "https://www.duke-energy.com",
             "electCompPhone": "(800)777-9898",
