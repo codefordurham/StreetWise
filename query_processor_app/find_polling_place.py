@@ -3,12 +3,7 @@ import robobrowser
 from robobrowser import RoboBrowser
 from .formatting import formatAddress
 
-#try/except avoids throwing error if local developer does not have geopandas
-try:
-    import geopandas
-    from shapely.geometry import Point
-except:
-    pass
+
 
 
 def findPollingPlace(address, zip_code):

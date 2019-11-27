@@ -1,3 +1,10 @@
+#try/except avoids throwing error if local developer does not have geopandas
+try:
+    import geopandas
+    from shapely.geometry import Point
+except:
+    pass
+
 def findWard(address, zip_code, lat, lon):
     try:  #try/except avoids throwing error if local developer does not have geopandas
         # TODO how do I get the lat/lng from the address and zip_code?
