@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import AddressEntryForm
 from .models import AddressEntry
-from .find_polling_place import findPollingPlace, findWard, findPoliceDistrict
+from .find_polling_place import findPollingPlace
+from .find_police_district import findPoliceDistrict
+from .find_ward import findWard
+from .nearest_library import nearest_library
 import requests
 
 
@@ -57,6 +60,8 @@ def main(request):
     polling_address = findPollingPlace(street_name, zip_code)
     ward = findWard(street_name, zip_code, lat, lon)
     police_district  = findPoliceDistrict(street_name, zip_code, lat, lon)
+    library = nearest_library(street_name, zip_code, lat, lon)
+
 
     # send data to be displayed on results page
     return render(
@@ -80,7 +85,7 @@ def main(request):
             "trashDays": "n/a",
             "recyclingDays": "n/a",
             "nearestPark": "n/a",
-            "nearestLibrary": "n/a",
+            "nearestLibrary": library,
             "nearestFireDept": "n/a",
             "policeDistrict": police_district,
             "neighborhoodListServ": "n/a",
