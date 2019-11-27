@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import AddressEntryForm
 from .models import AddressEntry
-from .find_polling_place import findPollingPlace, findWard
+from .find_polling_place import findPollingPlace, findWard, findPoliceDistrict
+import requests
 
 
 # Get data from end user
@@ -18,18 +19,51 @@ def main(request):
 
     if request.method == "POST":
         address = request.POST.get("address")
-        zip_code = request.POST.get("zip_code")
+    address = address + ' Durham, NC'
+    
+
+    url = "https://us1.locationiq.com/v1/search.php"
+    data = {'key': 'pk.aa40b962e9898c9fbc72b3d9cd662af7','q': address, 'format': 'json'}
+    response = requests.get(url, params=data)
+    return_info = response.json()
+    first_return_dict = return_info[0]
+    result_address = first_return_dict['display_name']
+    
+    #extract user coordintaes
+    lat = float(first_return_dict['lat'])
+    lon = float(first_return_dict['lon'])
+    #extract street address 
+    comma_count = 0
+    street_name = ""
+    for character in result_address:
+        if character != ",":
+            street_name += character
+        else:
+            comma_count += 1
+            if comma_count == 2:
+                break
+    #extract zip code
+    reversed_address = result_address[::-1]
+    zip_code = ""
+    for l in reversed_address:
+        if l.isdigit():
+            zip_code = zip_code + l
+            if len(zip_code) == 5:
+                break
+    zip_code = zip_code[::-1]
 
     # call functions that gather data
-    polling_address = findPollingPlace(address, zip_code)
-    ward = findWard(address, zip_code)
+        
+    polling_address = findPollingPlace(street_name, zip_code)
+    ward = findWard(street_name, zip_code, lat, lon)
+    police_district  = findPoliceDistrict(street_name, zip_code, lat, lon)
 
     # send data to be displayed on results page
     return render(
         request,
         "./results.html",
         {
-            "address": address,
+            "address": street_name,
             "electCompName": "Duke Energy",
             "electCompURL": "https://www.duke-energy.com",
             "electCompPhone": "(800)777-9898",
@@ -48,7 +82,7 @@ def main(request):
             "nearestPark": "n/a",
             "nearestLibrary": "n/a",
             "nearestFireDept": "n/a",
-            "policePhone": "(919) 560-4935 (for emergency call 911)",
+            "policeDistrict": police_district,
             "neighborhoodListServ": "n/a",
             "ward": ward,
             "emergencyAlertsWebsiteName": "Alerts Center",
