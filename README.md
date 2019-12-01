@@ -66,6 +66,9 @@ Local Docker Development
 
 To run this locally with docker:
 
+    # Set up the initial developer settings if you haven't already done so:
+    cp streetwise/devsettings.template.py streetwise/devsettings.py
+
     docker-compose up
 
 Then visit http://localhost:8000
