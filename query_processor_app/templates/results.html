@@ -19,6 +19,10 @@
       <h1> {{ address }} </h1>
     </div>
 
+    <form action="pdf" method="post"> {% csrf_token %}
+      <input name="address" type="hidden" value="{{ address }}"/>
+      <input type="submit" value="Generate PDF"/>
+    </form>
 
     <div class="utilities">
       <ul>
@@ -89,6 +93,7 @@
         <li><label>School Board </label> {{ schoolBoardInfo }}</li>
       </ul>
     </div>
+
   </div>
 
 </body>

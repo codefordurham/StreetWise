@@ -3,9 +3,6 @@ import robobrowser
 from robobrowser import RoboBrowser
 from .formatting import formatAddress
 
-
-
-
 def findPollingPlace(address, zip_code):
     try:
         br = RoboBrowser()
