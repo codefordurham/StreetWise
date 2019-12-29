@@ -2,6 +2,7 @@
   "name": "street-wise",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

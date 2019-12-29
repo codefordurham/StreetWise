@@ -2,11 +2,15 @@ import React from 'react';
 import Geosuggest from 'react-geosuggest';
 import './Search.css';
 
-function Search() {
+function Search(props) {
   return (
     <div className="search-component">
       <h1>Streetwise</h1>
-      <Geosuggest />
+      <Geosuggest
+        onSuggestSelect={suggests => {
+          props.onLocationChange(suggests);
+        }}
+      />
     </div>
   );
 }
