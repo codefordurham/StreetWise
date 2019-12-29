@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Sheet.css';
 
 function Sheet(props) {
   const [data, setData] = useState(null);
@@ -15,12 +16,14 @@ function Sheet(props) {
       .catch((error) => {
         console.log("|error = "+ error);
       });
-  });
+  }, [props.address]);
 
   if (!data) {
     return (
       <div className="container">
-        ...loading...
+        <div className="loading">
+          Please wait...
+        </div>
       </div>
     );
   }
@@ -29,12 +32,12 @@ function Sheet(props) {
     <div className="container">
       <div className="utilities">
         <ul>
-          <li><label>Electric </label><a href={data.electCompURL} target="_blank">Duke Energy</a> {data.electCompPhone}</li>
-          <li><label>Water </label> <a href={data.waterURL} target="_blank">Durham Water Connection</a> {data.waterPhone} or
+          <li><label>Electric </label><a href={data.electCompURL} target="_blank" rel="noopener noreferrer">Duke Energy</a> {data.electCompPhone}</li>
+          <li><label>Water </label> <a href={data.waterURL} target="_blank" rel="noopener noreferrer">Durham Water Connection</a> {data.waterPhone} or
             in person at {data.waterAddress}</li>
-          <li><label>Gas </label> <a href={data.gasCompURL} target="_blank">{data.gasCompName}</a> {data.gasCompPhone}</li>
-          <li><label>Internet </label> <a href={data.internetURL} target="_blank">{data.internetLookupSite}</a></li>
-          <li><label>TV </label> <a href={data.TVURL} target="_blank">{data.TVLookupSite}</a></li>
+          <li><label>Gas </label> <a href={data.gasCompURL} target="_blank" rel="noopener noreferrer">{data.gasCompName}</a> {data.gasCompPhone}</li>
+          <li><label>Internet </label> <a href={data.internetURL} target="_blank" rel="noopener noreferrer">{data.internetLookupSite}</a></li>
+          <li><label>TV </label> <a href={data.TVURL} target="_blank" rel="noopener noreferrer">{data.TVLookupSite}</a></li>
         </ul>
 
         <ul>
@@ -59,14 +62,11 @@ function Sheet(props) {
           <li>
             <label>
               Neighborhood Listserv/watch
-              <a href="#" title="Hello from speech bubble!" className="tooltip">
-                <img src="img/tooltip.svg" />
-              </a>
             </label>{data.neighborhoodListServ}
           </li>
           <li><label>Nearest Hospital/ER/Clinic </label>{data.nearestHospital}</li>
           <li><label>Emergency Alerts </label><a href={data.emergencyAlertsURL}
-              target="_blank">{data.emergencyAlertsWebsiteName}</a></li>
+              target="_blank" rel="noopener noreferrer">{data.emergencyAlertsWebsiteName}</a></li>
         </ul>
 
       </div>
@@ -91,7 +91,7 @@ function Sheet(props) {
 
         <ul>
           <li><label>Find a Taxi </label>{data.taxiInfo}</li>
-          <li><label>Find a Bus </label><a href={data.busURL} target="_blank">{data.busWebsiteName}</a></li>
+          <li><label>Find a Bus </label><a href={data.busURL} target="_blank" rel="noopener noreferrer">{data.busWebsiteName}</a></li>
         </ul>
 
       </div>

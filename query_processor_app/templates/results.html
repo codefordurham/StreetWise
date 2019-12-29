@@ -6,6 +6,7 @@
 
 <head>
   <title>Streetwise</title>
+  {# TODO just use statics? #}
   {% if debug %}
   <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
   {% else %}
@@ -63,7 +64,7 @@
       <ul>
         <li><label>Poling location </label></li>
         <li> {{ polingLocation }} </li>
-       
+
       </ul>
       <ul>
         <li><label></label>{{ ward  }}</li>
@@ -95,4 +96,4 @@
 
 </html>
 
- 
+
