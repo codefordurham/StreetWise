@@ -25,3 +25,5 @@ yarn-debug.log*
 yarn-error.log*
 
 streetwise/devsettings.py
+
+static
