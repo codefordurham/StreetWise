@@ -2,7 +2,7 @@ import React from 'react';
 import Search from '../Search';
 
 export default {
-  title: 'StreetWise',
+  title: 'Search Form',
 };
 
 export const toStorybook = () => <Search onLocationChange={() => {}}/>

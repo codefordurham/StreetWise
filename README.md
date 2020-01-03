@@ -30,6 +30,17 @@ Software
 
 This project is composed of a Django/python backend, and a React frontend.
 
+React Development
+-----------------
+
+To see all the react components, and test directly, you can use storybook:
+
+    yarn storybook
+
+To run react locally and see the complete app:
+
+    yarn run start
+
 Local Development
 -----------------
 

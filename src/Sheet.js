@@ -1,22 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Sheet.css';
 
 function Sheet(props) {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch(`/qpa/api/results?address=${encodeURIComponent(props.address)}`)
-      .then((result) => {
-        if (!result.ok) {
-          throw new Error('HTTP Error: '+ result.status);
-        }
-        return result.json();
-      })
-      .then(setData)
-      .catch((error) => {
-        console.log("|error = "+ error);
-      });
-  }, [props.address]);
+  const { data } = props;
 
   if (!data) {
     return (
