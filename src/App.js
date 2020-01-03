@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import styles from './App.module.css';
 import Search from './Search';
 import Sheet from './Sheet';
 
@@ -25,13 +25,14 @@ function App() {
   if (location) {
     return (
       <div className="App">
-        <Sheet data={data} />
+        <Sheet data={data} address={location.description}/>
       </div>
     );
   }
 
   return (
     <div className="App">
+      <h1 className={styles.title}>Streetwise</h1>
       <Search
         onLocationChange={(location) => setLocation(location)}
       />

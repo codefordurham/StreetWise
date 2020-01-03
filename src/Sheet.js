@@ -1,13 +1,13 @@
 import React from 'react';
-import './Sheet.css';
+import styles from './Sheet.module.css';
 
 function Sheet(props) {
   const { data } = props;
 
   if (!data) {
     return (
-      <div className="container">
-        <div className="loading">
+      <div className={styles.loadingContainer}>
+        <div className={styles.loading}>
           Please wait...
         </div>
       </div>
@@ -15,8 +15,8 @@ function Sheet(props) {
   }
 
   return (
-    <div className="container">
-      <div className="utilities">
+    <div className={styles.container}>
+      <div className={styles.utilities}>
         <ul>
           <li><label>Electric </label><a href={data.electCompURL} target="_blank" rel="noopener noreferrer">Duke Energy</a> {data.electCompPhone}</li>
           <li><label>Water </label> <a href={data.waterURL} target="_blank" rel="noopener noreferrer">Durham Water Connection</a> {data.waterPhone} or
@@ -33,7 +33,7 @@ function Sheet(props) {
           <li><label>Nearest Libraries </label> {data.nearestLibrary}</li>
         </ul>
       </div>
-      <div className="health-safety">
+      <div className={styles.health}>
         <h4>Health and Safety</h4>
 
         <ul>
@@ -57,7 +57,7 @@ function Sheet(props) {
 
       </div>
 
-      <div className="government">
+      <div className={styles.government}>
         <h4>Government</h4>
 
         <ul>
@@ -72,7 +72,7 @@ function Sheet(props) {
 
       </div>
 
-      <div className="transportation">
+      <div className={styles.transportation}>
         <h4>Transportation</h4>
 
         <ul>
@@ -82,7 +82,7 @@ function Sheet(props) {
 
       </div>
 
-      <div className="education">
+      <div className={styles.education}>
         <h4>Education</h4>
         <ul>
           <li><label>Durham School District </label>{data.schoolDistrict}</li>
