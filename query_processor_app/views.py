@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import AddressEntryForm
 from .models import AddressEntry
-from  query_processor_app.finder_functions.find_polling_place.py import findPollingPlace
+from  .query_processor_app.finder_functions.find_polling_place.py import findPollingPlace
 from .find_police_district import findPoliceDistrict
 from .find_ward import findWard
 from .nearest_library import nearest_library
