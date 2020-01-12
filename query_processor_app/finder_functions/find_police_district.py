@@ -5,16 +5,16 @@ try:
 except:
     pass
 
-def findWard(address, zip_code, lat, lon):
+def findPoliceDistrict(address, zip_code, lat, lon):
     try:  #try/except avoids throwing error if local developer does not have geopandas
         # TODO how do I get the lat/lng from the address and zip_code?
         p = Point(lon, lat)
-        ward_data = geopandas.read_file('public/data/wards.geojson')
+        police_district_data = geopandas.read_file('public/data/Police_Districts.geojson')
 
-        matching_layers = [i for i, val in enumerate(ward_data.intersects(p)) if val]
+        matching_layers = [i for i, val in enumerate(police_district_data.intersects(p)) if val]
         if len(matching_layers) == 0:
-            return 'Ward n/a'
+            return 'n/a'
         
-        return ward_data.iloc[matching_layers[0]].Ward
+        return police_district_data.iloc[matching_layers[0]].DISTNUM
     except:
-        return 'Ward n/a'
+        return 'n/a'
