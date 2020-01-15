@@ -6,6 +6,7 @@ from .find_polling_place import findPollingPlace
 from .find_police_district import findPoliceDistrict
 from .find_ward import findWard
 from .nearest_library import nearest_library
+from .find_nearest_park import findNearestPark
 import requests
 
 
@@ -61,6 +62,7 @@ def main(request):
     ward = findWard(street_name, zip_code, lat, lon)
     police_district  = findPoliceDistrict(street_name, zip_code, lat, lon)
     library = nearest_library(street_name, zip_code, lat, lon)
+    nearest_park = findNearestPark(street_name, zip_code, lat, lon)
 
 
     # send data to be displayed on results page
@@ -84,7 +86,7 @@ def main(request):
             "TVURL": "https://www.cabletv.com/nc/durham?zip=" + zip_code,
             "trashDays": "n/a",
             "recyclingDays": "n/a",
-            "nearestPark": "n/a",
+            "nearestPark": nearest_park,
             "nearestLibrary": library,
             "nearestFireDept": "n/a",
             "policeDistrict": police_district,
