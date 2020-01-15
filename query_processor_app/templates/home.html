@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+ 
     <h3>Welcome to StreetWise. Please note that this site is under development and information is not guaranteed to be accurate! </h3>
   <p>
     Durham Streetwise is an information lookup tool being created for Durham residents. The site will the end user to enter their Durham home address and receive a wide variety of useful information such as nearest library, nearest hospital and polling location. We are creating this site to benefit those who are not internet savvy or do not have readily available internet access.
@@ -20,17 +20,14 @@
   </p>
     <br>
     Thank you for visiting StreetWise.  For more information, please visit <a href="https://codefordurham.com/project/streetwise/">CodeForDurham.com</a>
-  </header>  
-    <div class="searchbar">
-      <div>
-        
-        <form action="give_results" method="post"> {% csrf_token %}
+ 
 
+    <div class="searchbar">
+           
+        <form action="give_results" method="post"> {% csrf_token %}
           Enter street address to try out StreetWise <input type="text" name="address" id="address"><br>
-          
-          <br><br>
           <input type="submit" value="submit">
-          <div>
+        
           </div>
         </form>
       </div>
