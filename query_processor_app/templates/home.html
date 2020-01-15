@@ -16,8 +16,8 @@
     /* Style the header */
     .header {
       background-color: #f1f1f1;
-      padding: 20px;
-      text-align: center;
+      padding: 150px;
+      
     }
     </style>
 </head>
@@ -36,7 +36,7 @@
  
   </div>
    <div class="searchbar">
-           
+    <br><br>   
         <form action="give_results" method="post"> {% csrf_token %}
           Enter a Durham street address to try out StreetWise <input type="text" name="address" id="address">
           <input type="submit" value="submit">
