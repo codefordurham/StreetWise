@@ -14,7 +14,7 @@ def findPoliceDistrict(address, zip_code, lat, lon):
         matching_layers = [i for i, val in enumerate(police_district_data.intersects(p)) if val]
         if len(matching_layers) == 0:
             return 'n/a'
-        
-        return police_district_data.iloc[matching_layers[0]].DISTNUM
+
+        return int(police_district_data.iloc[matching_layers[0]].DISTNUM)
     except:
         return 'n/a'

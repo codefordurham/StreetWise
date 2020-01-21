@@ -1,0 +1,57 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.loadingContainer {
+}
+
+.loading {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "utilities"
+    "health"
+    "government"
+    "transportation"
+    "education";
+  grid-gap: 30px;
+}
+
+.utilities {
+  grid-area: utilities;
+}
+
+.government {
+  grid-area: government;
+}
+
+.health {
+  grid-area: health;
+}
+
+.transportation {
+  grid-area: transportation;
+}
+
+.education {
+  grid-area: education;
+}
+
+.safety {
+  grid-area: safety;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-areas:
+      "utilities utilities utilities"
+      "health government transportation"
+      "education . .";
+  }
+}

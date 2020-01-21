@@ -1,70 +1,85 @@
-# streetwise
+Overview
+========
 
-This is a Django project "Code for Durham" is working on that will be similar to the LA Neighborhood Info site: http://neighborhoodinfo.lacity.org/
+Architectural Haiku:
 
-Below are the steps I took to set up the Django project on my local machine (windows). Note, the Django security key is missing from the settings.py file.  Please contact ssciere if you need this.
+___Know___ _when, who to call_
+___Give___ _#s and times for homes_
+___Build___ _a contact sheet_
 
-****STEPS TO CREATE DJANGO PROJECT LOCALLY ON WINDOWS MACHINE (and launch in VS Code)****************
+Stakeholders:
 
-note: I'm using Python 3.7.2
+* Product Owner: we hope to partner with a Durham city department.
+* Users: residents and business owners in Durham.
 
-```
-(streetwise-3GpLyePt) C:\Users\Steve\code_for_durham\streetwise>python --version
-Python 3.7.2
+Guideposts:
 
+* resource constraints:
+    * developed by volunteers, in their free time!
+    * there is no budget -- free/cheap resources are best!
 
-C:\Users\Steve\code_for_durham\streetwise>pip3 install pipenv
-Requirement already satisfied: pipenv in c:\users\steve\appdata\local\programs\python\python37\lib\site-packages (2018.11.26)
-Requirement already satisfied: setuptools>=36.2.1 in c:\users\steve\appdata\local\programs\python\python37\lib\site-packages (from pipenv) (40.6.2)
-Requirement already satisfied: certifi in c:\users\steve\appdata\local\programs\python\python37\lib\site-packages (from pipenv) (2019.3.9)
-Requirement already satisfied: virtualenv-clone>=0.2.5 in c:\users\steve\appdata\local\programs\python\python37\lib\site-packages (from pipenv) (0.5.3)
-Requirement already satisfied: virtualenv in c:\users\steve\appdata\local\programs\python\python37\lib\site-packages (from pipenv) (16.5.0)
-Requirement already satisfied: pip>=9.0.1 in c:\users\steve\appdata\local\programs\python\python37\lib\site-packages (from pipenv) (18.1)
-You are using pip version 18.1, however version 19.1.1 is available.
-You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+Vocabulary:
+* "Service" is a geographically located offering such as a city provided
+   service (ie, trash pick up), or utility, or park.
 
-C:\Users\Steve\code_for_durham\streetwise>pipenv install django==2.1.9
-Creating a virtualenv for this project…
-Pipfile: C:\Users\Steve\code_for_durham\streetwise\Pipfile
-Using c:\users\steve\appdata\local\programs\python\python37\python.exe (3.7.2) to create virtualenv…
-[ ===] Creating virtual environment...Already using interpreter c:\users\steve\appdata\local\programs\python\python37\python.exe
-Using base prefix 'c:\\users\\steve\\appdata\\local\\programs\\python\\python37'
-New python executable in C:\Users\Steve\.virtualenvs\streetwise-3GpLyePt\Scripts\python.exe
-Installing setuptools, pip, wheel...
-done.
+This is a Django project "Code for Durham" is working on that will be similar
+to the LA Neighborhood Info site: http://neighborhoodinfo.lacity.org/
 
-Successfully created virtual environment!
-Virtualenv location: C:\Users\Steve\.virtualenvs\streetwise-3GpLyePt
-Creating a Pipfile for this project…
-Installing django==2.1…
-Adding django to Pipfile's [packages]…
-Installation Succeeded
-Pipfile.lock not found, creating…
-Locking [dev-packages] dependencies…
-Locking [packages] dependencies…
-Success!
-Updated Pipfile.lock (30ae14)!
-Installing dependencies from Pipfile.lock (30ae14)…
-  ================================ 2/2 - 00:00:02
-To activate this project's virtualenv, run pipenv shell.
-Alternatively, run a command inside the virtualenv with pipenv run.
+Software
+--------
 
-C:\Users\Steve\code_for_durham\streetwise>pipenv shell
-Launching subshell in virtual environment…
-Microsoft Windows [Version 10.0.17763.503]
-(c) 2018 Microsoft Corporation. All rights reserved.
+This project is composed of a Django/python backend, and a React frontend.
 
-(streetwise-3GpLyePt) C:\Users\Steve\code_for_durham\streetwise>django-admin startproject streetwise .
+Local Development
+-----------------
 
-(streetwise-3GpLyePt) C:\Users\Steve\code_for_durham\streetwise>python manage.py startapp query_processor_app
+In local development two servers are needed to develop for the full app:
+ * The backend django server, that serves to the API.
+ * React server, that automatically assembles any changes to the javascript frontend. The [React Scripts](https://create-react-app.dev/docs/folder-structure) project is used.
 
-(streetwise-3GpLyePt) C:\Users\Steve\code_for_durham\streetwise>code .
-```
+Below are the steps I took to set up the Django project on my local machine
+(windows). Note, the Django security key is missing from the settings.py file.
+Please contact ssciere if you need this.
+
+***STEPS TO CREATE DJANGO PROJECT LOCALLY ON WINDOWS MACHINE (and launch in VS Code)***
+
+      python --version
+      Python 3.7.2
+
+      pip3 install pipenv
+      pipenv install -r requirements.txt
+      pipenv shell
+
+      # Set up the initial developer settings if you haven't already done so:
+      cp streetwise/devsettings.template.py streetwise/devsettings.py
+
+      # Run the Django backend server on http://localhost:8000
+      export DJANGO_SETTINGS_MODULE=streetwise.devsettings
+      python manage.py runserver
+
+Visit http://localhost:8000/qpa/ to work directly against a server side path -
+http://localhost:8000 serves the react interface (whatever was most recently
+built with `python manage.py collectstatic`), and should generally be avoided
+for local development.
+
+In another console, run the react scripts for local development:
+
+      # Optionally use NVM to use the version of node used by this project:
+      nvm use
+
+      # Run the frontend React server on http://localhost:
+      yarn install
+      yarn run start
+
+Visit http://localhost:3000 to work directly with the React interface.
 
 Local Docker Development
 -------------------------
 
-To run this locally with docker:
+To run the servers locally with docker:
+
+    # Set up the initial developer settings if you haven't already done so:
+    cp streetwise/devsettings.template.py streetwise/devsettings.py
 
     docker-compose up
 
