@@ -7,6 +7,10 @@ ul {
 .loadingContainer {
 }
 
+.loading {
+  text-align: center;
+}
+
 .container {
   display: grid;
   grid-template-areas:
@@ -15,14 +19,11 @@ ul {
     "government"
     "transportation"
     "education";
+  grid-gap: 30px;
 }
 
 .utilities {
   grid-area: utilities;
-}
-
-.loading {
-  grid-area: loading;
 }
 
 .government {

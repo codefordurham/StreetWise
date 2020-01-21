@@ -24,14 +24,14 @@ function App() {
 
   if (location) {
     return (
-      <div className="App">
+      <div className={styles.container}>
         <Sheet data={data} address={location.description}/>
       </div>
     );
   }
 
   return (
-    <div className="App">
+    <div className={styles.container}>
       <h1 className={styles.title}>Streetwise</h1>
       <Search
         onLocationChange={(location) => setLocation(location)}

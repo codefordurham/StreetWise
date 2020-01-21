@@ -30,19 +30,12 @@ Software
 
 This project is composed of a Django/python backend, and a React frontend.
 
-React Development
------------------
-
-To see all the react components, and test directly, you can use storybook:
-
-    yarn storybook
-
-To run react locally and see the complete app:
-
-    yarn run start
-
 Local Development
 -----------------
+
+In local development two servers are needed to develop for the full app:
+ * The backend django server, that serves to the API.
+ * React server, that automatically assembles any changes to the javascript frontend. The [React Scripts](https://create-react-app.dev/docs/folder-structure) project is used.
 
 Below are the steps I took to set up the Django project on my local machine
 (windows). Note, the Django security key is missing from the settings.py file.
@@ -50,25 +43,38 @@ Please contact ssciere if you need this.
 
 ***STEPS TO CREATE DJANGO PROJECT LOCALLY ON WINDOWS MACHINE (and launch in VS Code)***
 
-Note: I'm using Python 3.7.2
+      python --version
+      Python 3.7.2
 
-```
-python --version
+      pip3 install pipenv
+      pipenv install -r requirements.txt
+      pipenv shell
 
-Python 3.7.2
+      # Set up the initial developer settings if you haven't already done so:
+      cp streetwise/devsettings.template.py streetwise/devsettings.py
+
+      # Run the Django backend server on http://localhost:8000
+      export DJANGO_SETTINGS_MODULE=streetwise.devsettings
+      python manage.py runserver
 
 
-pip3 install pipenv
-pipenv install -r requirements.txt
-pipenv shell
+In another console, run the react scripts for local development:
 
-python manage.py startapp query_processor_app
-```
+      # Optionally use NVM to use the version of node used by this project:
+      nvm use
+
+      # Run the frontend React server on http://localhost:
+      yarn install
+      yarn run start
+
+      # You can also use storybook, to develop React components individually:
+      yarn storybook
+
 
 Local Docker Development
 -------------------------
 
-To run this locally with docker:
+To run the servers locally with docker:
 
     # Set up the initial developer settings if you haven't already done so:
     cp streetwise/devsettings.template.py streetwise/devsettings.py
