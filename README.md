@@ -57,6 +57,10 @@ Please contact ssciere if you need this.
       export DJANGO_SETTINGS_MODULE=streetwise.devsettings
       python manage.py runserver
 
+Visit http://localhost:8000/qpa/ to work directly against a server side path -
+http://localhost:8000 serves the react interface (whatever was most recently
+built with `python manage.py collectstatic`), and should generally be avoided
+for local development.
 
 In another console, run the react scripts for local development:
 
@@ -67,9 +71,7 @@ In another console, run the react scripts for local development:
       yarn install
       yarn run start
 
-      # You can also use storybook, to develop React components individually:
-      yarn storybook
-
+Visit http://localhost:3000 to work directly with the React interface.
 
 Local Docker Development
 -------------------------
