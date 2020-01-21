@@ -8,6 +8,7 @@ from .find_polling_place import findPollingPlace
 from .find_police_district import findPoliceDistrict
 from .find_ward import findWard
 from .nearest_library import nearest_library
+#from .find_nearest_park import findNearestPark
 import requests
 
 
@@ -59,6 +60,7 @@ def fetch_data(address):
     ward = findWard(street_name, zip_code, lat, lon)
     police_district = findPoliceDistrict(street_name, zip_code, lat, lon)
     library = nearest_library(street_name, zip_code, lat, lon)
+    #nearest_park = findNearestPark(street_name, zip_code, lat, lon)
 
     return {
         "address": street_name,
