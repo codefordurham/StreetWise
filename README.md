@@ -60,7 +60,7 @@ In another console, run the react scripts for local development. Optionally use
       nvm use
       npm install -g yarn
 
-      # Run the frontend React server on http://localhost:
+      # Run the frontend React server on http://localhost:3000
       yarn install
       yarn run start
 
