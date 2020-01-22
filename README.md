@@ -37,18 +37,9 @@ In local development two servers are needed to develop for the full app:
  * The backend django server, that serves to the API.
  * React server, that automatically assembles any changes to the javascript frontend. The [React Scripts](https://create-react-app.dev/docs/folder-structure) project is used.
 
-Below are the steps I took to set up the Django project on my local machine
-(windows). Note, the Django security key is missing from the settings.py file.
-Please contact ssciere if you need this.
+Because we have a number of Windows users, we recommend installing [Anaconda Python](https://www.anaconda.com/distribution/), and using the `conda`:
 
-***STEPS TO CREATE DJANGO PROJECT LOCALLY ON WINDOWS MACHINE (and launch in VS Code)***
-
-      python --version
-      Python 3.7.2
-
-      pip3 install pipenv
-      pipenv install -r requirements.txt
-      pipenv shell
+      conda install --yes --file requirements.txt
 
       # Set up the initial developer settings if you haven't already done so:
       cp streetwise/devsettings.template.py streetwise/devsettings.py
