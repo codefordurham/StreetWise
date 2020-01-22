@@ -53,10 +53,12 @@ http://localhost:8000 serves the react interface (whatever was most recently
 built with `python manage.py collectstatic`), and should generally be avoided
 for local development.
 
-In another console, run the react scripts for local development:
+In another console, run the react scripts for local development. Optionally use
+[nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows) to manage your node installations:
 
       # Optionally use NVM to use the version of node used by this project:
       nvm use
+      npm install -g yarn
 
       # Run the frontend React server on http://localhost:
       yarn install
