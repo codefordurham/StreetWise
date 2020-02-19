@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Sheet.module.css';
+import utilitiesSvg from './images/icon-transportation.svg';
 
 function Sheet(props) {
-  const { data } = props;
+  const { address, data } = props;
 
   if (!data) {
     return (
@@ -17,7 +18,11 @@ function Sheet(props) {
   return (
     <div className={styles.container}>
       <div className={styles.utilities}>
-        <ul>
+        <div className={styles.address}>
+          <h4>{address}</h4>
+        </div>
+
+        <ul className={styles.left}>
           <li><label>Electric </label><a href={data.electCompURL} target="_blank" rel="noopener noreferrer">Duke Energy</a> {data.electCompPhone}</li>
           <li><label>Water </label> <a href={data.waterURL} target="_blank" rel="noopener noreferrer">Durham Water Connection</a> {data.waterPhone} or
             in person at {data.waterAddress}</li>
@@ -26,7 +31,7 @@ function Sheet(props) {
           <li><label>TV </label> <a href={data.TVURL} target="_blank" rel="noopener noreferrer">{data.TVLookupSite}</a></li>
         </ul>
 
-        <ul>
+        <ul className={styles.right}>
           <li><label>Trash </label> {data.trashDays}</li>
           <li><label>Recycling </label> {data.recyclingDays}</li>
           <li><label>Nearest Park </label> {data.nearestPark}</li>
