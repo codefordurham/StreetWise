@@ -4,24 +4,6 @@ ul {
   margin: 0;
 }
 
-h4 {
-  font-size: 20px;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: .5rem;
-  width: fit-content;
-}
-
-h4::before {
-  position: absolute;
-  margin-right: .8rem;
-  top: -.3rem;
-  left: -2rem;
-  width: 2rem;
-  height: 2rem;
-}
-
 .loadingContainer {
 }
 
@@ -32,7 +14,6 @@ h4::before {
 .container {
   display: grid;
   grid-template-areas:
-    "address"
     "utilities"
     "health"
     "government"
@@ -41,105 +22,69 @@ h4::before {
   grid-gap: 30px;
 }
 
-.address > h4::before {
-  content: url(images/icon-home.svg);
-  top: -.3rem;
-  left: -2.5rem;
+.utilities {
+  grid-area: utilities;
 }
 
-.utilities {
+.utilitiesWrapper {
   display: grid;
   grid-template-areas:
-    "title"
     "left"
     "right";
-  grid-area: utilities;
-  background: #eee;
-  padding: 0 2rem 2rem 2rem;
 }
 
-.utilities > .title {
-  grid-area: title;
-}
-
-.utilities > .left {
+.utilitiesWrapper > .left {
   grid-area: left;
 }
 
-.utilities > .right {
+.utilitiesWrapper > .right {
   grid-area: right;
-}
-
-
-.utilities > h4::before {
-  content: url(images/icon-health-and-safety.svg);
-  top: -2rem;
-  left: -2.5rem;
 }
 
 
 .government {
   grid-area: government;
-  background: #eee;
-  padding: 0 2rem 2rem 2rem;
-}
-
-.government > h4::before {
-  content: url(images/icon-government.svg);
 }
 
 .health {
   grid-area: health;
-  background: #eee;
-  padding: 0 2rem 2rem 2rem;
-}
-
-.health > h4::before {
-  content: url(images/icon-health-and-safety.svg);
 }
 
 .transportation {
   grid-area: transportation;
-  background: #eee;
-  padding: 0 2rem 2rem 2rem;
-}
-
-.transportation > h4::before {
-  content: url(images/icon-transportation.svg);
 }
 
 .education {
   grid-area: education;
-  background: #eee;
-  padding: 0 2rem 2rem 2rem;
-}
-
-.education > h4::before {
-  content: url(images/icon-education.svg);
 }
 
 .safety {
   grid-area: safety;
-  background: #eee;
-  padding: 0 2rem 2rem 2rem;
 }
 
-.education > h4::before {
-  content: url(images/icon-health-and-safety.svg);
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+dt {
+  grid-column-start: 1;
+}
+
+dd {
+  grid-column-start: 2;
 }
 
 @media (min-width: 768px) {
   .container {
     grid-template-areas:
-      "address address address"
       "utilities utilities utilities"
       "health government transportation"
       "education . .";
   }
 
-  .utilities {
+  .utilitiesWrapper {
     grid-template-areas:
-      "title title"
       "left right";
   }
 }
