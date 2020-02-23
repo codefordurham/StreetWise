@@ -4,13 +4,6 @@ ul {
   margin: 0;
 }
 
-.loadingContainer {
-}
-
-.loading {
-  text-align: center;
-}
-
 .container {
   display: grid;
   grid-template-areas:
@@ -25,6 +18,22 @@ ul {
 .utilities {
   grid-area: utilities;
 }
+
+.utilitiesWrapper {
+  display: grid;
+  grid-template-areas:
+    "left"
+    "right";
+}
+
+.utilitiesWrapper > .left {
+  grid-area: left;
+}
+
+.utilitiesWrapper > .right {
+  grid-area: right;
+}
+
 
 .government {
   grid-area: government;
@@ -46,12 +55,29 @@ ul {
   grid-area: safety;
 }
 
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+dt {
+  grid-column-start: 1;
+}
+
+dd {
+  grid-column-start: 2;
+}
+
 @media (min-width: 768px) {
   .container {
-    display: grid;
     grid-template-areas:
       "utilities utilities utilities"
       "health government transportation"
       "education . .";
+  }
+
+  .utilitiesWrapper {
+    grid-template-areas:
+      "left right";
   }
 }

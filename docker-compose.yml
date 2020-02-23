@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   web:
     build: .
@@ -10,3 +9,13 @@ services:
       - .:/code:delegated
     ports:
       - "8000:8000"
+  react:
+    image: node:12.1.0
+    command: yarn run start
+    working_dir: /home/node
+    volumes:
+      - .:/home/node:delegated
+    ports:
+      - "3000:3000"
+    depends_on:
+      - web

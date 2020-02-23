@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  grid-template-areas:
+    "titleWrapper"
+    "content";
+  background: #eee;
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+.titleWrapper {
+  display: flex;
+  grid-area: titleWrapper;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+.title {
+  font-size: 20px;
+  margin: .2rem 0;
+  width: fit-content;
+}
+
+.children {
+  grid-area: children;
+  border-top: 1px solid #aaa;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+}
