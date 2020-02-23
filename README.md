@@ -1,10 +1,14 @@
 Overview
 ========
 
+Visit the latest development build: https://streetwise-dev1.herokuapp.com/
+
 Architectural Haiku:
 
 ___Know___ _when, who to call_
+
 ___Give___ _#s and times for homes_
+
 ___Build___ _a contact sheet_
 
 Stakeholders:
