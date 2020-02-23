@@ -76,4 +76,6 @@ To run the servers locally with docker:
 
     docker-compose up
 
-Then visit http://localhost:8000
+Visit the django app: http://localhost:8000
+Visit react dev: http://localhost:3000
+Visit react dev storybook: http://localhost:9009
