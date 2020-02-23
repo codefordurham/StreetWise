@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 import Search from './Search';
 import Sheet from './Sheet';
+import Loading from './Loading';
 
 function App() {
   const [location, setLocation] = useState(null);
@@ -22,10 +23,28 @@ function App() {
       });
   }, [location]);
 
+  function resetDataAndSetLocation(location) {
+    setData(null);
+    setLocation(location);
+  }
+
+  if (location && data) {
+    return (
+      <div className={styles.container}>
+        <h1 className={styles.title}>Streetwise</h1>
+        <Search
+          onLocationChange={(location) => resetDataAndSetLocation(location)}
+        />
+        <Sheet data={data} address={location.description}/>
+      </div>
+    );
+  }
+
   if (location) {
     return (
       <div className={styles.container}>
-        <Sheet data={data} address={location.description}/>
+        <h1 className={styles.title}>Streetwise</h1>
+        <Loading address={location.description}/>
       </div>
     );
   }
@@ -34,7 +53,7 @@ function App() {
     <div className={styles.container}>
       <h1 className={styles.title}>Streetwise</h1>
       <Search
-        onLocationChange={(location) => setLocation(location)}
+        onLocationChange={(location) => resetDataAndSetLocation(location)}
       />
     </div>
   );

@@ -4,13 +4,6 @@ ul {
   margin: 0;
 }
 
-.loadingContainer {
-}
-
-.loading {
-  text-align: center;
-}
-
 .container {
   display: grid;
   grid-template-areas:

@@ -9,14 +9,6 @@ services:
       - .:/code:delegated
     ports:
       - "8000:8000"
-  storybook:
-    image: node:12.1.0
-    command: yarn run storybook
-    working_dir: /home/node
-    volumes:
-      - .:/home/node:delegated
-    ports:
-      - "9009:9009"
   react:
     image: node:12.1.0
     command: yarn run start
@@ -25,3 +17,5 @@ services:
       - .:/home/node:delegated
     ports:
       - "3000:3000"
+    depends_on:
+      - web

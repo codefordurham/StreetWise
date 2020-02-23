@@ -10,16 +10,6 @@ import educationSvg from './images/icon-education.svg';
 function Sheet(props) {
   const { address, data } = props;
 
-  if (!data) {
-    return (
-      <div className={styles.loadingContainer}>
-        <div className={styles.loading}>
-          Please wait...
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.utilities}>
